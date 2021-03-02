@@ -30,7 +30,7 @@
 
 ### Testing the Server
 
-1. Run the command `npm test` to test the server
+1. Run the command `npm test` to test the tests for the events
 
 ## UML
 

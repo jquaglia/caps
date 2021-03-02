@@ -1,7 +1,6 @@
 'use strict';
 
 require('dotenv').config({ path: '../.env' });
-// const events = require('../events.js');
 const store = process.env.STORE_NAME;
 const faker = require('faker');
 const fecha = require('fecha');
@@ -30,13 +29,6 @@ function thankYou(payload) {
   console.log('EVENT ', payload);
 }
 
-// const orderInterface = new Vendor();
-
-// setInterval(() => {
-//   events.emit('pickup', { event: 'pickup', time: `${faker.time.recent}`, payload: orderInterface.create() });
-// }, 5000);
-
-// console.log(store);
 module.exports = {
   Vendor,
   thankYou,
