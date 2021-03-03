@@ -2,11 +2,11 @@
 
 require('dotenv').config({ path: '../.env' });
 const store = process.env.STORE_NAME;
-// const events = require('../events.js');
+const events = require('./events.js');
 const faker = require('faker');
 const fecha = require('fecha');
 
-class Vendor {
+class Order {
   constructor() {
     this.db = [];
   }
@@ -23,25 +23,15 @@ class Vendor {
   }
 }
 
-function thankYou(payload) {
+const orderInterface = new Order();
+
+
+events.on('delivered', payload => {
   console.log(`VENDOR: Thank you for delivering ${payload.payload.orderID}`);
   payload.event = 'delivered';
   payload.time = fecha.format(new Date(), 'YYYY-MM-DD HH:mm:ss');
-  console.log('EVENT ', payload);
-}
+});
 
-// setInterval(() => {
-//   let order = {
-//     store: store,
-//     orderID: faker.random.uuid(),
-//     customer: faker.name.findName(),
-//     address: `${faker.address.city()}, ${faker.address.stateAbbr()}`, 
-//   };
-
-//   events.emit('pickup', { event: 'pickup', time: `${fecha.format(new Date(), 'YYYY-MM-DD HH:mm:ss')}`, payload: order });
-// }, 5000);
-
-module.exports = {
-  Vendor,
-  thankYou,
-};
+setInterval(() => {
+  events.emit('pickup', { event: 'pickup', time: `${fecha.format(new Date(), 'YYYY-MM-DD HH:mm:ss')}`, payload: orderInterface.create() });
+}, 5000);
