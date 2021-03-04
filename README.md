@@ -12,11 +12,13 @@ In this phase, we’ll be moving away from using TCP for our event network and s
 
 The intent here is to build the data services that would drive full dashboard where we can see pickups and deliveries as they happen.
 
+- `CAPS Phase 3:` Complete work on a multi-day build of our delivery tracking system, adding queued delivery
+
 ## Author: Jason Quaglia
 
 - [Link to Github Actions Tab](https://github.com/jquaglia/caps/actions)
 
-- [Link to PR on Github](https://github.com/jquaglia/caps/pull/5)
+- [Link to PR on Github](https://github.com/jquaglia/caps/pull/7)
 
 ## Collaborators
 
